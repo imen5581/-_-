@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-2 col-sm-offset-5">
+            <label for="">Ширина</label>
+            <input type="text" placeholder="Введите ширину" id="width">
+            <label for="">Высота</label>
+            <input type="text" placeholder="Введите высоту" id="height">
+                <input id="button" type="submit" name="button" onclick="myFunction();" value="Случайный цвет"/>
+        </div>
+        </div>
+
+        <div class="row ">
+            <div class="col col-xs-2 col-sm-offset-5">
+            <div class="color" id="sqr1"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function myFunction(){
+            $color = generateColor();
+            document.getElementById('sqr1').style.background=$color;
+            generateSize();
+
+        };
+
+        function generateColor() {
+            return '#' + Math.floor(Math.random()*16777215).toString(16)
+        }
+
+        function generateSize() {
+                $width =  document.getElementById('width').value;
+                $height = document.getElementById('height').value;
+
+                document.getElementById('sqr1').style.width = $width + "px";
+                document.getElementById('sqr1').style.height = $height + "px";
+            //alert('Ширина' + $width + ' ' + ' ' + 'Высота' + $height);
+
+
+        }
+    </script>
+</body>
+</html>
