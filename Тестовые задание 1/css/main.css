@@ -1,0 +1,11 @@
+input {
+  display: inline-block;
+}
+.color {
+  margin-top: 4rem;
+  margin-left: -4rem;
+  width: 40rem;
+  height: 40rem;
+  background-color: aquamarine;
+  border-radius: 30px;
+}
