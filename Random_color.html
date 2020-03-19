@@ -16,9 +16,9 @@
         <div class="row">
             <div class="col col-xs-2 col-sm-offset-5">
             <label for="">Ширина</label>
-            <input type="text" placeholder="Введите ширину" id="width">
+            <input type="text" placeholder="Введите ширину" id="width" onclick=generateSize()>
             <label for="">Высота</label>
-            <input type="text" placeholder="Введите высоту" id="height">
+            <input type="text" placeholder="Введите высоту" id="height" onclick=generateSize()>
                 <input id="button" type="submit" name="button" onclick="myFunction();" value="Случайный цвет"/>
         </div>
         </div>
@@ -34,7 +34,6 @@
         function myFunction(){
             $color = generateColor();
             document.getElementById('sqr1').style.background=$color;
-            generateSize();
 
         };
 
