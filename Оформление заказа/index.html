@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=f0105244-d555-4154-b92d-be1ea242f536&lang=ru_RU" type="text/javascript">
+    </script>
+
+    <script type="text/javascript">
+        function validate(){
+            //Считаем значения из полей name и email в переменные x и y
+            var x=document.forms["form"]["name"].value;
+            var y=document.forms["form"]["email"].value;
+            var z=document.forms["form"]["telephone"].value;
+
+            //Если поле name пустое выведем сообщение и предотвратим отправку формы
+            if (x.length==0){
+                document.getElementById("namef").innerHTML="*данное поле обязательно для заполнения";
+                return false;
+            }
+            //Если поле email пустое выведем сообщение и предотвратим отправку формы
+            if (z.length==0){
+                document.getElementById("tellf").innerHTML="*данное поле обязательно для заполнения";
+                return false;
+            }
+            //Проверим содержит ли значение введенное в поле email символы @ и .
+            at=y.indexOf("@");
+            dot=y.indexOf(".");
+            //Если поле не содержит эти символы знач email введен не верно
+            if (at<1 || dot <1){
+                document.getElementById("emailf").innerHTML="*email введен не верно";
+                return false;
+            }
+            else {
+                document.getElementById("button").innerHTML="Заказ оформлен!";
+                return true;
+            }
+        }
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-4 col-lg-offset-4">
+            <div class="form">
+                <form name = "form" action="" onsubmit="return validate()">
+            <input type="text" placeholder="ФИО" name="name" id="name"> <span style="color:red" id="namef"></span><br />
+            <input type="text" placeholder="Телефон" name="telephone" > <span style="color:red" id="tellf"></span><br/>
+            <input type="text" placeholder="Email" name="email" > <span style="color:red" id="emailf"></span>
+
+
+                <div class="maps" id="map" style="width: 400px; height: 200px"></div>
+
+                <textarea name="" id="" cols="30" rows="10" placeholder="Комментарий к заказу (Макс 500 символов)"></textarea>
+                    <div class="button">
+                        <input type="submit" name="send" value="Отправить форму"> <span style="color:green" id="button"></span> <br/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+    function init(){
+        // Создание карты.
+        var myMap = new ymaps.Map("map", {
+            // Координаты центра карты.
+            // Порядок по умолчанию: «широта, долгота».
+            // Чтобы не определять координаты центра карты вручную,
+            // воспользуйтесь инструментом Определение координат.
+            center: [55.76, 37.64],
+            // Уровень масштабирования. Допустимые значения:
+            // от 0 (весь мир) до 19.
+            zoom: 7
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.col-lg-8{
+    height: 20rem;
+    background-color: red;
+}
+.row input{
+    display: block;
+}
+.form input{
+    width: 40rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form textarea{
+    width: 40rem;
+    margin-top: 1rem;
+}
+
+.button{
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+}
+.maps{
+    border: solid 1px black;
+    margin-top: 2rem;
+}
